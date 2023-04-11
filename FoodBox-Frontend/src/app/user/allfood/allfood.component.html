@@ -1,0 +1,90 @@
+<h1 class="text-center">All Food</h1><br>
+
+<div class="container">
+    <div class="input" style="text-align: center;">
+        <input type="text" placeholder="Search here.." [(ngModel)]="term">
+    </div>
+
+    <div class="viewcart" style="text-align: right;">
+        <a routerLink="/viewcart">
+            <button class="btn btn-success btn-lg">View Cart</button>
+        </a>
+    </div>
+</div>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg" *ngFor="let product of products |filter:term">
+
+            <div class="card h-100" style="width: 14rem;">
+
+                <img class="card-img-top" src="{{product.imageUrl}}" alt="Card
+                    image cap">
+                <div class="card-body" style="background-color: rgb(237, 251,
+                    192); height: auto;">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <b>Food Id:</b> {{product.id}}<br>
+                    <b>Category:</b> {{product.category}}<br>
+                    <b>Description:</b> {{product.description}}<br>
+                    <b>Price:</b> ${{product.unit_price}}<br>
+                </div>
+
+                <div class="card-footer" style="background-color: rgb(228, 243,
+                    238); text-align: center;">
+                    <button type="button" class="btn btn-danger"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+    
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add your food</h5>
+                <button type="button" class="close" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Hello, this is a modal. -->
+                <!-- FORM -->
+                <form (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Product Id</label>
+                        <input type="text" class="form-control" name="id"
+                            id="id" placeholder="Enter food id"
+                            [(ngModel)]="cart.productId">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="text" class="form-control" name="quantity"
+                            id="quantity" placeholder="Enter quantity"
+                            [(ngModel)]="cart.quantity">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success">Add</button>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+    </div>
+</div>

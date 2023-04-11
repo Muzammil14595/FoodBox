@@ -1,0 +1,29 @@
+<h1 class="text-center">Cart</h1><br>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th><th>PRODUCT ID</th><th>PRODUCT NAME</th><th>QUANTITY</th><th>AMOUNT</th><th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cartItem of cartItems">
+                <td>{{cartItem.id}}</td>
+                <td>{{cartItem.productId}}</td>
+                <td>{{cartItem.productName}}</td>
+                <td>{{cartItem.quantity}}</td>
+                <td>{{cartItem.amount}}</td>
+                <td>
+                    <a class="btn btn-danger"
+                        routerLink="/deletecart/{{cartItem.id}}" role="button">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+    <a class="btn btn-warning btn-lg" routerLink="/placeorder" role="button">Place Order</a>
+</div><br>
+<div class="container">
+<a class="btn btn-primary" routerLink="/allfood" role="button">Back</a>
+</div>

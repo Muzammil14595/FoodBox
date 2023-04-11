@@ -1,0 +1,30 @@
+<h1 class="text-center">Add Food</h1><br>
+<div class="container">
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Food name</label>
+    <input type="text" class="form-control" name="name" id="name" placeholder="Enter food name" [(ngModel)]="product.name">
+  </div>
+
+  <div class="form-group">
+    <label>Category</label>
+    <input type="text" class="form-control" name="category" id="category" placeholder="Enter category" [(ngModel)]="product.category">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" name="description" id="description" placeholder="Enter description" [(ngModel)]="product.description">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="text" class="form-control" name="unit_price" id="unit_price" placeholder="Enter price" [(ngModel)]="product.unit_price">
+  </div>
+
+  <div class="form-group">
+    <label>Image</label>
+    <input type="text" class="form-control" name="image" id="image" placeholder="Enter image address" [(ngModel)]="product.imageUrl">
+  </div><br>
+ 
+  <button type="submit" class="btn btn-success">Add</button>
+</form><br>
+<a class="btn btn-primary" routerLink="/adminhome" role="button">Back</a>
+</div>
